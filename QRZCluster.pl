@@ -69,7 +69,10 @@ if (!defined $options{'h'} ||
 my $lidadditions="^QRP\$|^LGT\$";
 my $csadditions="(^P\$)|(^M{1,2}\$)|(^AM\$)";
 
-&read_cty(); # Load DXCC Table for processing calls not in QRZ
+my $version = &read_cty(); # Load DXCC Table for processing calls not in QRZ
+
+print "CTY.DAT file version $version by Jim Reisert, AD1C\n";
+
 my $mycall = "";
 my $format = 'A14 A2 A8 A2 A11 A2 A29 A2 A4';
 my $username = $options{'u'};
@@ -533,6 +536,16 @@ sub read_cty {
 	# Read cty.dat from AD1C, or this program itself (contains cty.dat)
 	my $self=0;
 	my $filename;
+	my $version;
+	
+	
+	# To check the version, use this text from the Revisions page:
+	# VER20110117, <a href="index.htm#Version">
+	# Revisions Page is at http://www.country-files.com/cty/history.htm
+	# Just check the first one.
+	# One other option is to read the file from the Internet itself.
+	# Obviously the whole point of this program is that we have Internet access.
+	
 
 	if (-e "cty.dat") {
 	print "Reading local cty.dat file\n";
@@ -559,6 +572,11 @@ sub read_cty {
 			substr($line, 0, 1) = '';
 		}
 
+		if ($line =~ /(VER\d{8})/){
+			$version = $1;
+		}
+		
+		
 		if (substr($line, 0, 1) ne ' ') {			# New DXCC
 			$line =~ /\s+([*A-Za-z0-9\/]+):\s+$/;
 			$mainprefix = $1;
@@ -577,6 +595,7 @@ sub read_cty {
 	}
 	close CTY;
 
+	return $version;
 } # read_cty
 
 
