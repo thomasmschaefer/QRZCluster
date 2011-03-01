@@ -1,0 +1,38 @@
+# QRZCluster
+# 
+# Copyright (C) 2011  Better Software Solutions, Inc.
+# Copyright (C) 2011  Thomas M. Schaefer, NY4I.
+#
+# This program is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published by 
+# the Free Software Foundation; either version 2 of the License, or 
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, 
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License 
+# along with this program; if not, write to the 
+# Free Software Foundation, Inc., 59 Temple Place - Suite 330, 
+# Boston, MA 02111-1307, USA. 
+
+
+
+ARRL Section DX Cluster Reporter Server\n";
+Created by Tom Schaefer, NY4I with assistance from Bob Wanek, N2ESP\n";
+Inspired by the quick multiplier checkers at W4GAC (SPARC) Contesters\n";
+Copyright 2010 Better Software Solutions, Inc.\n";
+This program makes use of the POE framework as well as Ham::Reference::QRZ\n";
+Additionally, the CTY files from Jim Reisert, AD1C are used as well as \n";
+ parts of the dxcc script by Fabian Kurz, DJ1YFK\n";
+Copyright claims for external modules are retained by their respective owners\n";
+
+To install, you have to make sure you have a few Perl modules:
+
+You need to get Ham::Reference::QRZ and POE.
+
+A simple CPAN or PPM (for ActiveState Perl) call should do the trick.
+
+Note to have the most up to date CTY.DAT file, you should also go to this site ( http://www.country-files.com/cty/cty.dat ) and save the CTY.DAT file in the directory where you have the script.
